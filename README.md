@@ -1,5 +1,5 @@
-# gerenciamentoVeiculoPolicial
+# Projeto de Votação
 :coffee: SPRING BOOT API REST (JAVA) - 
-:police_car: Projeto Inicial de Gerenciamento de Veículo - (backand)
+:bow_and_arrow: Projeto Inicial de Gerenciamento de Votação - (backand)
  
-Projeto tem como objetivo criar um sistema de gerenciamento de veículos de policias.
+Projeto tem como objetivo criar um sistema de gerenciamento de votação online.
