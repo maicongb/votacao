@@ -1,0 +1,48 @@
+<mat-toolbar class="mat-elevation-z8">
+  <button
+    mat-icon-button
+    *ngIf="sidenav.mode === 'over'"
+    (click)="sidenav.toggle()"
+  >
+    <mat-icon *ngIf="!sidenav.opened"> menu </mat-icon>
+    <mat-icon *ngIf="sidenav.opened"> close </mat-icon>
+  </button>
+  Pesquisa Prévias - PMDF Representada.
+</mat-toolbar>
+
+<mat-sidenav-container>
+  <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8">
+    <mat-icon style="font-size: 50px;">account_circle</mat-icon>
+
+    <h4 class="name">Maicon Gilson</h4>
+
+    <mat-divider></mat-divider>
+
+    <button mat-button class="menu-button" routerLink="/home">
+      <mat-icon>dashboard</mat-icon>
+      <span>Dashboard</span>
+    </button>
+    <button mat-button class="menu-button" routerLink="/home">
+      <mat-icon>contact_support</mat-icon>
+      <span>Enquetes</span>
+    </button>
+    <button mat-button class="menu-button" routerLink="/home">
+      <mat-icon>check_box</mat-icon>
+      <span>Votantes</span>
+    </button>
+    <mat-divider></mat-divider>
+    <button mat-button class="menu-button" routerLink="/profile">
+      <mat-icon>person</mat-icon>
+      <span>Perfil</span>
+    </button>
+    <button mat-button class="menu-button" routerLink="/about">
+      <mat-icon>info</mat-icon>
+      <span>Sobre</span>
+    </button>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div class="content mat-elevation-z8">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
