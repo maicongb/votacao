@@ -23,11 +23,11 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import br.gov.df.pm.api.assembler.FotoCandidatoModelAssembler;
+import br.gov.df.pm.api.model.FotoCandidatoModel;
 import br.gov.df.pm.api.model.input.FotoCandidatoInput;
 import br.gov.df.pm.domain.exception.EntidadeNaoEncontradaException;
 import br.gov.df.pm.domain.model.Candidato;
 import br.gov.df.pm.domain.model.FotoCandidato;
-import br.gov.df.pm.domain.model.FotoCandidatoModel;
 import br.gov.df.pm.domain.service.CadastroCandidatoService;
 import br.gov.df.pm.domain.service.CatalogoFotoCandidatoService;
 import br.gov.df.pm.domain.service.FotoStorageService;

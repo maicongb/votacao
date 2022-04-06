@@ -16,7 +16,7 @@ public class FotoCandidato {
 	
 	@EqualsAndHashCode.Include
 	@Id
-	@Column(name = "candidato_id")
+	@Column(name = "id")
 	private Long id;
 	
 	@OneToOne(fetch = FetchType.LAZY)
