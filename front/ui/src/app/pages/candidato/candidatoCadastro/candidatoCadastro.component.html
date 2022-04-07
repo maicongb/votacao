@@ -1,0 +1,110 @@
+<form>
+  <mat-card [formGroup]="form">
+    <mat-tab-group>
+      <mat-tab label="Cadastro do Candidato(a) ">
+        <mat-card-content>
+            <div fxLayout="row wrap">
+              <!-- column -->
+              <div fxFlex.gt-sm="100" fxFlex="100">
+                <mat-form-field>
+                  <input matInput placeholder="Nome" formControlName="nome">
+                </mat-form-field>
+                <mat-card-subtitle  *ngIf="form.controls.nome?.invalid
+                                            && (form.controls.nome?.dirty
+                                                || form.controls.nome?.touched)">
+                    <div class="alert alert-danger" *ngIf="form.controls.nome?.errors?.required">
+                      Nome é obrigatório.
+                    </div>
+                    <div class="alert alert-danger" *ngIf=" form.controls.nome?.errors?.minlength">
+                      Nome deve ter pelo menos 3 caracteres.
+                    </div>
+                    <div class="alert alert-danger" *ngIf=" form.controls.nome?.errors?.maxlength">
+                      Nome deve ter até 50 caracteres.
+                    </div>
+                </mat-card-subtitle>
+        </div>
+              <!-- column -->
+              <div fxFlex.gt-sm="100" fxFlex="100">
+                <mat-form-field>
+                  <input matInput placeholder="e-Mail" type="email" formControlName="email">
+                </mat-form-field>
+                <mat-card-subtitle  *ngIf="form.controls.email?.invalid
+                                            && (form.controls.email?.dirty
+                                                || form.controls.email?.touched)">
+                    <div class="alert alert-danger" *ngIf="form.controls.email?.errors?.required">
+                      E-mail é obrigatório.
+                    </div>
+                    <div class="alert alert-danger" *ngIf=" form.controls.email?.errors?.email">
+                      E-mail deve ser válido.
+                    </div>
+                </mat-card-subtitle>
+              </div>
+              <!-- column -->
+              <div fxFlex.gt-sm="100" fxFlex="100" >
+                <mat-form-field>
+                  <input matInput placeholder="Instagram" formControlName="instagram" >
+                </mat-form-field>
+                <mat-card-subtitle  *ngIf="form.controls.instagram?.invalid
+                                            && (form.controls.instagram?.dirty
+                                                || form.controls.instagram?.touched)">
+                    <div class="alert alert-danger" *ngIf="form.controls.instagram?.errors?.required">
+                      Instagram é obrigatório.
+                    </div>
+                    <div class="alert alert-danger" *ngIf=" form.controls.instagram?.errors?.pattern">
+                      Instagram deve ser válido.
+                    </div>
+                </mat-card-subtitle>
+              </div>
+              <!-- column -->
+              <div fxFlex.gt-sm="100" fxFlex="100">
+                <mat-form-field>
+                  <input matInput placeholder="Nascimento" formControlName="dtNascimento"
+                  [matDatepicker]="picker">
+                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                  <mat-datepicker #picker></mat-datepicker>
+                  </mat-form-field>
+                  <mat-card-subtitle  *ngIf="form.controls.dtNascimento?.invalid
+                  && (form.controls.dtNascimento?.dirty
+                      || form.controls.dtNascimento?.touched)">
+                    <div class="alert alert-danger" *ngIf="form.controls.dtNascimento?.errors?.required">
+                    Data de nascimento é obrigatório.
+                    </div>
+                    <div class="alert alert-danger" *ngIf=" form.controls.dtNascimento?.errors?.date">
+                      Data de nascimento deve ser válido.
+                    </div>
+                    </mat-card-subtitle>
+              </div>
+              <!-- column -->
+              <div fxFlex.gt-sm="90" fxFlex="90" class=" text-right " >
+                <button mat-raised-button color="primary" (click)="this.Salvar()">Gravar</button>
+              </div>
+              <div fxFlex.gt-sm="10" fxFlex="10" class=" text-right " >
+                  <a [routerLink]="['..']" routerLinkActive="router-link-active" ><button mat-raised-button color="warn" >Voltar</button></a>
+              </div>
+            </div>
+        </mat-card-content>
+      </mat-tab>
+      <mat-tab label="Lives com inscrição" *ngIf=" candidato.enquetes.length > 0 " >
+        <mat-card-content>
+          <div class="d-flex no-blcok">
+            <div fxFlex.gt-sm="50%" *ngFor="let enquete of candidato.enquetes">
+              <mat-card>
+                <mat-card-content>
+                  <mat-card-title>Quem vc votaria em 2022 para Dep. Distrital?</mat-card-title>
+                  <mat-card-subtitle>
+                    01/05/2022
+                  </mat-card-subtitle>
+                  <mat-list>
+                    <mat-list-item >
+                      <p matLine class="text-muted">Pesquisa com eleitores da tropa da PMDF para eleições de</p>
+                    </mat-list-item>
+                  </mat-list>
+                </mat-card-content>
+              </mat-card>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-tab>
+    </mat-tab-group>
+  </mat-card>
+</form>

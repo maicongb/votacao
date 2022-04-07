@@ -1,0 +1,41 @@
+<h2 >Localizar candidatos</h2>
+  <mat-form-field class="filter-full-width" appearance="fill">
+  <mat-label>Nome, eMail</mat-label>
+  <input matInput placeholder="Nome ou e-Mail" [(ngModel)]="filtroLista">
+  <button *ngIf="filtroLista" matSuffix mat-icon-button aria-label="Clear" (click)="filtroLista=''">
+    <mat-icon>close</mat-icon>
+  </button>
+  </mat-form-field>
+  <a mat-button [routerLink]="['.', 'cadastro', '']" routerLinkActive="router-link-active" >
+    Cadastrar novo candidado.
+  </a>
+<mat-card *ngIf=" candidatosFiltrados.length > 0 ">
+<mat-card-content >
+<mat-card-title>Candidatos localizados</mat-card-title>
+<mat-card-subtitle>Candidatos que contém o texto informado no nome ou e-mail.</mat-card-subtitle>
+<mat-list *ngFor="let candidato of candidatosFiltrados " >
+<mat-list-item >
+  <h2 matLine>{{candidato.nome}}</h2>
+  <p matLine class="text-muted">{{candidato.email}}</p>
+  <a  [routerLink]="[ 'cadastro' , candidato.id  ]"
+  routerLinkActive="router-link-active" >
+  Editar
+</a>
+</mat-list-item>
+</mat-list>
+</mat-card-content>
+</mat-card>
+<mat-card *ngIf=" candidatosFiltrados.length == 0 ">
+<mat-card-content >
+<mat-card-subtitle>Nenhum candidato contém o texto informado no nome ou e-mail.</mat-card-subtitle>
+<mat-list>
+<mat-list-item>
+<div class="message-widget contact-widget">
+  <div class="mail-contnet">
+    <span class="mail-desc"></span>
+  </div>
+</div>
+</mat-list-item>
+</mat-list>
+</mat-card-content>
+</mat-card>
