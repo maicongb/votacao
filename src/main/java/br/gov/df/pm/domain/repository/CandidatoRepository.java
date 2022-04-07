@@ -13,10 +13,10 @@ public interface CandidatoRepository extends
 				CandidatoRepositoryQueries,
 						JpaSpecificationExecutor<Candidato> {
 
-	Optional<Candidato> findByTelefone(String telefone);
-	
 	@Query("select f from FotoCandidato f "
 			+ "where f.candidato.id = :candidatoId")
 	Optional<FotoCandidato> findFotoById(Long candidatoId);
+
+	Optional<Candidato> findByEmail(String email);
 
 }

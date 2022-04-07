@@ -29,13 +29,11 @@ public class CadastroCandidatoService {
 		
 		candidatoRepository.detach(candidato);
 		
-		Optional<Candidato> candidatoExiste = candidatoRepository
-				.findByTelefone(candidato.getTelefone());
+		Optional<Candidato> candidatoExistente = candidatoRepository.findByEmail(candidato.getEmail());
 		
-		if(candidatoExiste.isPresent() && !candidatoExiste.get().equals(candidato)) {
+		if (candidatoExistente.isPresent() && !candidatoExistente.get().equals(candidato)) {
 			throw new NegocioException(
-					String.format("Já existe um candidato cadastrodo com este número de telefone %s", 
-							candidato.getNome()));
+					String.format("Já existe um candidato cadastrado com o e-mail %s", candidato.getEmail()));
 		}
 		
 		return candidatoRepository.save(candidato);
