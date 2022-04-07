@@ -1,5 +1,6 @@
 package br.gov.df.pm.domain.model;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,8 +16,8 @@ import lombok.EqualsAndHashCode;
 
 @Data
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
-@Entity(name = "CANDIDATO")
-public class Candidato {
+@Entity(name = "ENQUETE")
+public class Enquete {
 
 	
 	@Id
@@ -26,29 +27,21 @@ public class Candidato {
 	private Long id;
 	
 	@Column(nullable = false)
-	private String nome;
-	
-	@Column(nullable = true)
-	private String apelido;
-	
-	@Column(nullable = false)
-	private Integer numero;
-	
-	@Column(nullable = true)
-	private String telefone;
-	
-	@Column(nullable = false)
-	private Integer ativo;
-	
-	@Column(nullable = true)
-	private String localidade;
+	private String titulo;
 	
 	@Column(nullable = true)
 	private String descricao;
 	
-	@Column(nullable = true)
-	private String email;
+	@Column(nullable = false)
+	private LocalDate dataInicio;
 	
-	@OneToMany(mappedBy = "candidato")
+	@Column(nullable = false)
+	private LocalDate dataFim;
+	
+	@Column(nullable = false)
+	private int ativo;
+
+	@OneToMany(mappedBy = "enquete")
 	private List<CandidatoEnquete> candidatoEnquetes = new ArrayList<>();
+	
 }

@@ -1,5 +1,6 @@
 package br.gov.df.pm.api.model.input;
 
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
@@ -19,8 +20,14 @@ public class CandidatoInput {
 	
 	@NotBlank
 	private String partido;
+	
+	@NotBlank
 	private String telefone;
 	private String descricao;
 	private String localidade;
+	
+	@NotBlank
+	@Email
+	private String email;
 
 }

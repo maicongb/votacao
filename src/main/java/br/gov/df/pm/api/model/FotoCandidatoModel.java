@@ -1,4 +1,4 @@
-package br.gov.df.pm.domain.model;
+package br.gov.df.pm.api.model;
 
 import lombok.Getter;
 import lombok.Setter;
